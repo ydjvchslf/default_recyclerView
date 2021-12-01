@@ -1,5 +1,6 @@
 package com.example.recyclerview
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,12 +16,12 @@ class PersonAdapter(val items: List<Person>) //생성자 추가
 
     // 뷰홀더 객체생성
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
+        Log.d("LOG", "PersonAdapter - onCreateViewHolder 호출")
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_person, parent, false) //item_xml 모양을 하는 뷰 홀더를 생성
-        val viewHolder = PersonViewHolder(ItemPersonBinding.bind(view))
 
-        return viewHolder
-       // return PersonViewHolder(ItemPersonBinding.bind(view)) //위와 같음
+        return PersonViewHolder(ItemPersonBinding.bind(view))
+        // return PersonViewHolder(ItemPersonBinding.bind(view)) //위와 같음
     }
 
     // 데이터를 뷰홀더에 바인딩
